@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Topbar from './components/Topbar'
 import MobilTopbar from './components/MobilTopbar'
 import MobilNav from './components/MobilNav'
@@ -10,6 +10,14 @@ import Footer from './components/Footer'
 
 function App() {
   const [accordions, setAccordions] = useState(data)
+
+  //Use useEffect to utilize setAccordions without rendering it
+  useEffect(() => {
+    console.log('Accordions data initialized', accordions)
+    // If you need to use setAccordions, you can do it here, e.g.,:
+    // setAccordions([...accordions, newAccordion])
+  }, [accordions])
+
   return (
     <div className="wrapper">
       <Topbar />
